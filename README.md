@@ -4,7 +4,7 @@
 
 ### by Hannah Lynn
 
-This project is a Holiday Chat Agent for First Holiday Ltd.
+This project is a chat bot.
 
 You can see a working prototype video of the project by going to my portfolio.
 
