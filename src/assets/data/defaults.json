@@ -1,0 +1,22 @@
+[
+    {
+      "DefaultResponseReference": 1,
+      "value": "I don't know what you mean"
+    },
+    {
+      "DefaultResponseReference": 2,
+      "value": "I'm just a bot"
+    },
+    {
+      "DefaultResponseReference": 3,
+      "value": "I don't understand"
+    },
+    {
+      "DefaultResponseReference": 4,
+      "value": "Can you try again?"
+    },
+    {
+      "DefaultResponseReference": 5,
+      "value": "I've no idea"
+    }
+   ]

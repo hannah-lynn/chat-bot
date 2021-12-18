@@ -1,0 +1,435 @@
+@import 'variables';
+
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/fonts/Montserrat-Regular.ttf');
+};
+@font-face {
+    font-family: 'Caveat';
+    src: url('assets/fonts/Caveat-Regular.ttf');
+};
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+
+    .app-container {
+        min-height: 100vh;
+        
+        .content-container {
+            display: flex;
+            flex: 1 1 auto;
+            height: 100vh;
+        }
+
+        .content {
+            position: relative;
+            flex: 1 1 auto;
+            flex-direction: row;
+            background: url('assets/images/background-image.png') no-repeat;
+            background-size: cover;
+            background-position: center center;
+            overflow: hidden;
+
+            .nav {
+                margin: 15px;
+
+                .logo {
+                    img {
+                        height: 45px;
+                    }
+
+                    h1 {
+                        font-family: 'Caveat', cursive;
+                        font-size: 3rem;
+                        color: #F16A6A;
+                        @media (max-width: 420px) {
+                            font-size: 2.5rem;
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        justify-content: center;
+                        grid-column: span 10 / span 10;
+                    }
+                }
+                .gap {
+                    @media (max-width: 768px) {
+                        grid-column: span 1 / span 1;
+                    }
+                }
+
+                .nav-items {
+                    cursor: pointer;
+                    font-size: 14px;
+                    line-height: 25px;
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+
+                    li button {
+                        background-color: #F16A6A;
+                        
+                    }
+                    .chat-on {
+                        background-color: #E9B000;
+                    }
+
+                }
+
+                .nav-items ul {
+
+                    li:hover {
+                        color: #E9B000;
+                    }
+                }
+
+                .nav-burger {
+                    @apply hidden;
+                    height: 34px;
+                    width: 34px;
+                    max-width: 95px;
+
+                    @media (max-width: 1023px) {
+                        @apply block;
+                        height: 26px;
+                    }
+
+                    .bar {
+                        background: #F16A6A;
+                        height: 3px;
+                        margin: 7px 0;
+                        @apply relative;
+                        transition: all 0.2s ease 0s;
+                        width: 34px;
+                        border-radius: 10px;
+
+                        @media (max-width: 1023px) {
+                            width: 26px;
+                            margin: 5px 0;
+                        }
+                    }
+                    @media (min-width: 768px) {
+                        display: none;
+                    }
+                }
+
+            }
+
+            @media (max-width: 768px) {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .main {
+
+                .gap {
+                    grid-column: span 2 / span 2;
+                }
+
+                @media (max-width: 767px) {
+                    .gap {
+                        display: none;
+                    }
+                }
+
+                .container {
+
+                    grid-column: span 3 / span 3;
+
+                    
+
+                    @media (max-width: 767px) {
+                        grid-column: span 12 / span 12;
+
+                        .gap {
+                            display: none;
+                        }
+                    }
+
+                    .booking-card {
+                        background-color: rgba(255, 255, 255, 0.5);
+                        height: 315px;
+                        backdrop-filter: blur(30px);
+                        margin-top: 100px;
+                        font-size: 14px;
+
+                        form input {
+                            width: 226px;
+                        }
+
+                        form label {
+                            font-weight: 800;
+                            color: #008F95;
+                        }
+
+                        input:focus {
+                            outline: none;
+                        }
+
+                        .book button {
+                            width: 226px;
+                            background-color: #E9B000;
+                            font-size: 18px;
+                            letter-spacing: 0.5px;
+                        }
+
+                        .book button:hover {
+                            background-color: #ffa41b;
+                        }
+
+                        .date input {
+                            width: 180px;
+                        }
+
+                        @media (max-width: 767px) {
+                            height: 465px;
+                            margin-top: 65px;
+                        }
+
+                        .booked {
+                            font-size: 20px;
+                            color: #008f95;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+
+            .chat-tab {
+                position: absolute;
+                width: 230px;
+                border-top-left-radius: 0.75rem;
+                border-top-right-radius: 0.75rem;
+                height: 45px;
+                background-color: #F16A6A;
+                color: white;
+                right: 50px;
+                bottom: 0px;
+
+                h2 {
+                    font-size: 18px;
+                }
+
+                .bubble {
+                    height: 30px;
+                    width: 35px;
+                }
+
+                @media (max-width: 768px) {
+                    right: 10px;
+                    width: 150px;
+
+                    h2 {
+                        font-size: 14px;
+                    }
+
+                    .bubble {
+                        height: 25px;
+                        width: 30px;
+                    }
+                }
+            }
+            
+
+            .chat-card {
+                position: absolute;
+                max-width: 340px;
+                width: 340px;
+                right: 50px;
+                bottom: 50px;
+                visibility: visible;
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.5);
+                height: 550px;
+                z-index: 1;
+                backdrop-filter: blur(30px);
+
+                @media (max-width: 420px) {
+                    right: unset;
+                }
+
+                
+                .title-container {
+                    border-top-left-radius: 0.75rem;
+                    border-top-right-radius: 0.75rem;
+                    background-color: #F16A6A;
+
+                    .title {
+                        h2 {
+                            color: white;
+                            font-size: 18px;
+                        }
+                    }
+
+                    .refresh {
+                        button {
+                            background: url('assets/images/refresh.svg');
+                            background-repeat: no-repeat;
+                            position: absolute;
+                            left: 10px;
+                            top: 10px;
+                            cursor: pointer;
+                            height: 15px;
+                            width: 15px;
+                        }
+                    }
+
+                    .close {
+                        button {
+                            background: url('assets/images/close-cross.svg');
+                            background-repeat: no-repeat;
+                            position: absolute;
+                            right: 10px;
+                            top: 10px;
+                            cursor: pointer;
+                            height: 15px;
+                            width: 15px;
+                        }
+                    }
+                }
+
+
+                .chat-area {
+                    overflow-y: auto;
+                    font-size: 12px;
+
+                    .bot-chat-bubble {
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 10px;
+                        margin-right: 30px;
+                        max-width: fit-content;
+                        padding: 5px 10px;
+                        background-color: rgb(245, 245, 245);
+                        border-radius: 10px;
+                    }
+                
+                    .user-chat-container {
+                        display: flex;
+                        justify-content: flex-end;
+                        width: 95%;
+                    }
+                
+                    .user-chat-bubble {
+                        margin: 0px 0px 10px 30px;
+                        background-color: rgb(194, 255, 255);
+                        border-radius: 10px;
+                        padding: 5px 10px;
+                        width: fit-content;
+                    }
+                
+                    .button-container, .holiday-results-container {
+                        display: flex;
+                        justify-content: center;
+                        background-color: none;
+                        flex-wrap: wrap;
+                
+                        .chat-button {
+                            margin-bottom: 10px;
+                            padding: 7px;
+                            outline: none;
+                            border: 2px solid #E9B000;
+                            border-radius: 15px;
+                            cursor: pointer;
+                            color: black;
+                            min-width: 55px;
+                            align-items: center;
+                        }
+
+                        .chat-button:not(:last-child) {
+                            margin-right: 20px;
+                        }
+                        
+                        .chat-button:hover, .selected {
+                            border: 2px solid #F16A6A;
+                        }
+                    }
+
+                    .center {
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    .datetime, .name {
+                        background: none;
+                        color: 	#808080;
+                        margin-right: 0px;
+                    }
+
+                    .holiday-results-container {
+
+                        min-width: 300px;
+                        max-width: 300px;
+
+                        .holiday-image {
+                            height: 100px;
+                            width: 150px;
+                            border-radius: 15px;
+                        }
+
+                        .rating-star {
+                            height: 10px;
+                        }
+                    }
+
+                }
+
+                .chat-input-container {
+                    font-size: 12px;
+                    padding: 12px 0px 10px 0px;
+                    .send-button button {
+                        background: url('assets/images/paper-plane.svg');
+                        background-repeat: no-repeat;
+                        width:25px;
+                        height:20px;
+                        border: 0;
+                    }
+
+                    .download-button button {
+                        background: url('assets/images/save.svg');
+                        background-repeat: no-repeat;
+                        width:24px;
+                        height:24px;
+                        border: 0;
+                    }
+
+                    input:focus {
+                        outline: none !important;
+                    }
+
+                    border-bottom-left-radius: 0.75rem;
+                    border-bottom-right-radius: 0.75rem;
+
+                    
+                }
+            }
+        }
+    }
+    
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: white; 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}

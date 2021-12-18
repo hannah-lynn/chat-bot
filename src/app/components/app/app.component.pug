@@ -1,0 +1,97 @@
+doctype html
+.app-container.flex.flex-col.h-screen.overflow-hidden
+    div.content-container
+        div.content
+            header
+                .row
+                    .nav.grid.grid-cols-12
+                        .logo.flex.col-span-5
+                            img.mt-2.logo(src="./../../../assets/images/logo.png")
+                            h1 First Holiday
+                        .nav-items.col-span-7.flex.justify-end.items-center.mr-4
+                            ul.text-white.flex.space-x-8
+                                li Home 
+                                li About 
+                                li Holidays 
+                                li FAQs 
+                                li Contact
+
+            .main.grid.grid-cols-12(*ngIf="booking", [@slideInOut])
+                .gap
+                .container.flex.justify-center
+                    .booking-card.shadow-2xl.rounded-xl.flex.flex-col.justify-center
+                        form.m-4(*ngIf="!booked", [formGroup]="bookingFormGroup", (submit)="book()")
+                            .top-row.inline(class="md:flex")
+                                .name.mb-3.flex.flex-col.mr-3
+                                    label.mb-1(for="name") Name:
+                                    input.rounded-xl.p-2(type="text", name="name", formControlName="name",placeholder="Name")
+                                .people.mb-3.flex.flex-col    
+                                    label.mb-1(for="number_people") People:
+                                    input.rounded-xl.p-2(type="text", name="number_people", formControlName="number_people",placeholder="How many people")
+                            .second-row.inline(class="md:flex")
+                                .hotel.mb-3.flex.flex-col.mr-3
+                                    label.mb-1(for="hotel") Hotel:
+                                    input.rounded-xl.p-2(type="text", name="hotel", formControlName="hotel",placeholder="Hotel")
+                                .num-nights.mb-3.flex.flex-col
+                                    label.mb-1(for="number_nights") Nights:
+                                    input.rounded-xl.p-2(type="text", name="number_nights", formControlName="number_nights", placeholder="Number of nights")
+                            .date.mb-5.flex.flex-col
+                                label.mb-1(for="booking_date") From:
+                                input.rounded-xl.p-2(type="date", name="booking_date", formControlName="booking_date", placeholder="Date")
+                            
+                            .book.flex.justify-center
+                                button.p-2.rounded-xl.font-bold.text-white Book Now
+                        .booked.m-4(*ngIf="booked", [@slideInOut])
+                            h2.text-center Congratulations {{ userName }} your holiday to Hotel {{ hotel }} is booked!
+
+            .chat-card.flex.flex-col.rounded-xl.shadow-2xl(*ngIf="showChat", [@slideInOut])
+                .title-container.flex.py-4.justify-center
+                    .refresh.text-left
+                        button((click)="restartChat()")
+                    .title.flex.text-center 
+                        h2 Holiday Chat Agent
+                    .close.text-right
+                        button((click)="toggleChat()")
+                .chat-area.flex.flex-grow.flex-col(#chatArea [scrollTop]="chatArea.scrollHeight")
+                    ng-container(*ngFor="let message of messageHistory")
+                        .section([class.center]="!message.who")
+                            .name.ml-3(*ngIf="message.who === 'Bot'") {{ message.who }}
+                            .bot-chat-bubble.ml-2(*ngIf="message.who !== 'User'", [class.datetime]="!message.who")
+                                span {{ message.message }}
+                            .user-chat-container(*ngIf="message.who === 'User'")
+                                .user-chat-bubble {{ message.message }}
+
+                            .button-container(*ngIf="message.buttons")
+                                button.chat-button(type="button",*ngFor="let button of message.buttons",(click)="button.onclick(button)",[class.selected]="button.selected") {{button.text}}
+                            
+                            .holiday-results-container.m-2(*ngIf="message.holidays")
+                                a.chat-button.flex(type="button",*ngFor="let holiday of message.holidays",(click)="holiday.onclick(holiday)",[class.selected]="holiday.selected")
+                                    .holiday-info.p-2
+                                        p.font-bold(*ngIf="holiday.country") Country: 
+                                            span.font-normal {{ holiday.country }}
+                                        p.font-bold(*ngIf="holiday.city")  City: 
+                                            span.font-normal {{ holiday.city }}
+                                        p.font-bold(*ngIf="holiday.hotel")  Hotel: 
+                                            span.font-normal {{ holiday.hotel }}
+                                        p.flex.items-center.font-bold(*ngIf="holiday.rating")  Rating:&nbsp;
+                                            span(*ngFor="let _ of [].constructor(holiday.rating)")
+                                                img.rating-star(src="./../../../assets/images/rating-star.png")
+                                        p.font-bold(*ngIf="holiday.price")  Price: 
+                                            span.font-normal £{{ holiday.price }}
+                                    .holiday-image(*ngIf="holiday.img") 
+                                        img.holiday-image([src]="holiday.img") 
+                            
+                            
+
+                form.chat-input-container.grid.grid-cols-6.bg-white([formGroup]="formGroup", (submit)="submit()")
+                    .download-button.cursor-pointer.text-center.col-span-1
+                        button.p-2(type="button", id="download-chat", (click)="save()")
+                    input.p-2.chat-input.col-span-4(#chatInput, type="text", name="chat_input", formControlName="chat_input", placeholder="Type your message here", autocomplete="off")
+                    .send-button.cursor-pointer.text-center.col-span-1
+                        button.p-2(type="submit", id="submit-message")
+                    
+
+            .chat-tab.flex.justify-center.cursor-pointer.items-center(*ngIf="!showChat && chatOpen", (click)="toggleChat()", [@tabAnimation])
+                h2.mr-6 Chat Open
+                img.bubble(src="./../../../assets/images/speech-bubble.png")
+                        

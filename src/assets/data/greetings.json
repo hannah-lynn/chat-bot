@@ -1,0 +1,26 @@
+[
+ {
+   "GreetingReference": 1,
+   "Greeting": "Hello"
+ },
+ {
+   "GreetingReference": 2,
+   "Greeting": "Hey"
+ },
+ {
+   "GreetingReference": 3,
+   "Greeting": "Hi there"
+ },
+ {
+   "GreetingReference": 4,
+   "Greeting": "Nice to meet you"
+ },
+ {
+  "GreetingReference": 5,
+  "Greeting": "Ahoy!"
+},
+{
+  "GreetingReference": 6,
+  "Greeting": "Howdy"
+}
+]

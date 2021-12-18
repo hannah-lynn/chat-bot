@@ -1,0 +1,86 @@
+[
+  {
+    "QuestionReference": 1,
+    "UserKeyword": "name",
+    "BotResponse": "My name is Botlyn",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 2,
+    "UserKeyword": "age",
+    "BotResponse": "I'm 124 years old",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 3,
+    "UserKeyword": "hobby",
+    "BotResponse": "My hobby is being a good bot",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 4,
+    "UserKeyword": "faq",
+    "BotResponse": "Here is a link to the FAQs",
+    "ButtonText": "FAQs Page",
+    "Link": "https://www.google.com/search?q=faq"
+  },
+  {
+    "QuestionReference": 5,
+    "UserKeyword": "families",
+    "BotResponse": "Here is a link to some great family holidays",
+    "ButtonText": "Click me",
+    "Link": "https://www.google.com/search?q=familyholidays"
+  },
+  {
+    "QuestionReference": 6,
+    "UserKeyword": "couples",
+    "BotResponse": "Here's a link to some couples holidays",
+    "ButtonText": "Press",
+    "Link": "https://www.google.com/search?q=coupleholidays"
+  },
+  {
+    "QuestionReference": 7,
+    "UserKeyword": "baggage",
+    "BotResponse": "Here's a link to some baggage FAQs",
+    "ButtonText": "Press",
+    "Link": "https://www.google.com/search?q=baggage"
+  },
+  {
+    "QuestionReference": 8,
+    "UserKeyword": "thanks",
+    "BotResponse": "You're welcome",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 9,
+    "UserKeyword": "cheese",
+    "BotResponse": "When it's too Gouda be true",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 10,
+    "UserKeyword": "cheers",
+    "BotResponse": "No worries",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 11,
+    "UserKeyword": "joke",
+    "BotResponse": "Why did the chatbot cross the road? Because it was programmed to be a chicken!",
+    "ButtonText": "",
+    "Link": ""
+  },
+  {
+    "QuestionReference": 12,
+    "UserKeyword": "hungry",
+    "BotResponse": "No thanks, I just had a byte to eat.",
+    "ButtonText": "",
+    "Link": ""
+  }
+ ]
